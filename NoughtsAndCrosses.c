@@ -198,7 +198,9 @@ char checkWinner(char *game)
 }
 
 
-
+/*
+Used for drawing the grid!
+*/
 int drawGrid(int x,int turn,int reset)
 {
     static char game[9] = {'1','2','3','4','5','6','7','8','9'}; //Grid for the game.
@@ -232,7 +234,9 @@ int drawGrid(int x,int turn,int reset)
 
 }
 
-
+/*
+Marks the grid depending on who's turn it is.
+*/
 void markGrid()
 {
     int value = 0;
