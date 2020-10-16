@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <Windows.h>
+#include <unistd.h>
 /*
 Author: Akanate
 Purpose: Noughts And Crosses Game
@@ -12,7 +13,7 @@ Purpose: Noughts And Crosses Game
 int drawGrid(int x,int turn,int reset);
 void markGrid();
 char checkWinner(char *game);
-
+char print_grid(char *game);
 //Initialization
 int main()
 {
@@ -23,13 +24,12 @@ int main()
 char checkWinner(char *game)
 {
     /*
-        The reason why one print statement is being repeated is because it is giving the most updated version of the grid before telling the user they have won.
+    THESE IF STATEMENTS CHECK EVERY POSSIBILITY OF NOUGHTS OR CROSSES WINNING AND STOPS THE GAME IF EITHER OF THEM WIN.
     */
     int count = 0;
     if(game[0] == 'X' && game[1] == 'X' && game[2] == 'X'){
         system("clear");
-        printf("\t\t Welcome to Noughts And Crosses\n\n");
-        printf(" \t\t\t%c | %c | %c \n\t\t\t---------- \n\t\t\t%c | %c | %c \n\t\t\t----------\n\t\t\t%c | %c | %c\n\n",game[0],game[1],game[2],game[3],game[4],game[5],game[6],game[7],game[8]);
+        print_grid(game);
         printf("\n\t\t\tCrosses has won.\n");
         sleep(3);
         system("clear");
@@ -37,8 +37,7 @@ char checkWinner(char *game)
     }
     else if(game[0] == 'O' && game[1] == 'O' && game[2] == 'O'){
         system("clear");
-        printf("\t\t Welcome to Noughts And Crosses\n\n");
-        printf(" \t\t\t%c | %c | %c \n\t\t\t---------- \n\t\t\t%c | %c | %c \n\t\t\t----------\n\t\t\t%c | %c | %c\n\n",game[0],game[1],game[2],game[3],game[4],game[5],game[6],game[7],game[8]);
+        print_grid(game);
         printf("\n\t\t\tNoughts has won.\n");
         sleep(3);
         system("clear");
@@ -46,8 +45,7 @@ char checkWinner(char *game)
     }
     if(game[3] == 'X' && game[4] == 'X' && game[5] == 'X'){
         system("clear");
-        printf("\t\t Welcome to Noughts And Crosses\n\n");
-        printf(" \t\t\t%c | %c | %c \n\t\t\t---------- \n\t\t\t%c | %c | %c \n\t\t\t----------\n\t\t\t%c | %c | %c\n\n",game[0],game[1],game[2],game[3],game[4],game[5],game[6],game[7],game[8]);
+        print_grid(game);
         printf("\n\t\t\tCrosses has won.\n");
         sleep(3);
         system("clear");
@@ -55,8 +53,7 @@ char checkWinner(char *game)
     }
     else if(game[3] == 'O' && game[4] == 'O' && game[5] == 'O'){
         system("clear");
-        printf("\t\t Welcome to Noughts And Crosses\n\n");
-        printf(" \t\t\t%c | %c | %c \n\t\t\t---------- \n\t\t\t%c | %c | %c \n\t\t\t----------\n\t\t\t%c | %c | %c\n\n",game[0],game[1],game[2],game[3],game[4],game[5],game[6],game[7],game[8]);
+        print_grid(game);
         printf("\n\t\t\tNoughts has won.\n");
         sleep(3);
         system("clear");
@@ -64,8 +61,7 @@ char checkWinner(char *game)
     }
     if(game[6] == 'X' && game[7] == 'X' && game[8] == 'X'){
         system("clear");
-        printf("\t\t Welcome to Noughts And Crosses\n\n");
-        printf(" \t\t\t%c | %c | %c \n\t\t\t---------- \n\t\t\t%c | %c | %c \n\t\t\t----------\n\t\t\t%c | %c | %c\n\n",game[0],game[1],game[2],game[3],game[4],game[5],game[6],game[7],game[8]);
+        print_grid(game);
         printf("\n\t\t\tCrosses has won.\n");
         sleep(3);
         system("clear");
@@ -74,8 +70,7 @@ char checkWinner(char *game)
     }
     else if(game[6] == 'O' && game[7] == 'O' && game[8] == 'O'){
         system("clear");
-        printf("\t\t Welcome to Noughts And Crosses\n\n");
-        printf(" \t\t\t%c | %c | %c \n\t\t\t---------- \n\t\t\t%c | %c | %c \n\t\t\t----------\n\t\t\t%c | %c | %c\n\n",game[0],game[1],game[2],game[3],game[4],game[5],game[6],game[7],game[8]);
+        print_grid(game);
         printf("\n\t\t\tNoughts has won.\n");
         sleep(3);
         system("clear");
@@ -83,8 +78,7 @@ char checkWinner(char *game)
     }
     if(game[0] == 'X' && game[4] == 'X' && game[8] == 'X'){
         system("clear");
-        printf("\t\t Welcome to Noughts And Crosses\n\n");
-        printf(" \t\t\t%c | %c | %c \n\t\t\t---------- \n\t\t\t%c | %c | %c \n\t\t\t----------\n\t\t\t%c | %c | %c\n\n",game[0],game[1],game[2],game[3],game[4],game[5],game[6],game[7],game[8]);
+        print_grid(game);
         printf("\n\t\t\tCrosses has won.\n");
         sleep(3);
         system("clear");
@@ -93,8 +87,7 @@ char checkWinner(char *game)
     }
     else if(game[0] == 'O' && game[4] == 'O' && game[8] == 'O'){
         system("clear");
-        printf("\t\t Welcome to Noughts And Crosses\n\n");
-        printf(" \t\t\t%c | %c | %c \n\t\t\t---------- \n\t\t\t%c | %c | %c \n\t\t\t----------\n\t\t\t%c | %c | %c\n\n",game[0],game[1],game[2],game[3],game[4],game[5],game[6],game[7],game[8]);
+        print_grid(game);
         printf("\n\t\t\tNoughts has won.\n");
         sleep(3);
         system("clear");
@@ -102,8 +95,7 @@ char checkWinner(char *game)
     }
     if(game[2] == 'X' && game[4] == 'X' && game[6] == 'X'){
         system("clear");
-        printf("\t\t Welcome to Noughts And Crosses\n\n");
-        printf(" \t\t\t%c | %c | %c \n\t\t\t---------- \n\t\t\t%c | %c | %c \n\t\t\t----------\n\t\t\t%c | %c | %c\n\n",game[0],game[1],game[2],game[3],game[4],game[5],game[6],game[7],game[8]);
+        print_grid(game);
         printf("\n\t\t\tCrosses has won.\n");
         sleep(3);
         system("clear");
@@ -111,8 +103,7 @@ char checkWinner(char *game)
     }
     else if(game[2] == 'O' && game[4] == 'O' && game[6] == 'O'){
         system("clear");
-        printf("\t\t Welcome to Noughts And Crosses\n\n");
-        printf(" \t\t\t%c | %c | %c \n\t\t\t---------- \n\t\t\t%c | %c | %c \n\t\t\t----------\n\t\t\t%c | %c | %c\n\n",game[0],game[1],game[2],game[3],game[4],game[5],game[6],game[7],game[8]);
+        print_grid(game);
         printf("\n\t\t\tNoughts has won.\n");
         sleep(3);
         system("clear");
@@ -120,8 +111,7 @@ char checkWinner(char *game)
     }
     if(game[0] == 'X' && game[3] == 'X' && game[6] == 'X'){
         system("clear");
-        printf("\t\t Welcome to Noughts And Crosses\n\n");
-        printf(" \t\t\t%c | %c | %c \n\t\t\t---------- \n\t\t\t%c | %c | %c \n\t\t\t----------\n\t\t\t%c | %c | %c\n\n",game[0],game[1],game[2],game[3],game[4],game[5],game[6],game[7],game[8]);
+        print_grid(game);
         printf("\n\t\t\tCrosses has won.\n");
         sleep(3);
         system("clear");
@@ -129,8 +119,7 @@ char checkWinner(char *game)
     }
     else if(game[0] == 'O' && game[3] == 'O' && game[6] == 'O'){
         system("clear");
-        printf("\t\t Welcome to Noughts And Crosses\n\n");
-        printf(" \t\t\t%c | %c | %c \n\t\t\t---------- \n\t\t\t%c | %c | %c \n\t\t\t----------\n\t\t\t%c | %c | %c\n\n",game[0],game[1],game[2],game[3],game[4],game[5],game[6],game[7],game[8]);
+        print_grid(game);
         printf("\n\t\t\tNoughts has won.\n");
         sleep(3);
         system("clear");
@@ -138,8 +127,7 @@ char checkWinner(char *game)
     }
     if(game[1] == 'X' && game[4] == 'X' && game[7] == 'X'){
         system("clear");
-        printf("\t\t Welcome to Noughts And Crosses\n\n");
-        printf(" \t\t\t%c | %c | %c \n\t\t\t---------- \n\t\t\t%c | %c | %c \n\t\t\t----------\n\t\t\t%c | %c | %c\n\n",game[0],game[1],game[2],game[3],game[4],game[5],game[6],game[7],game[8]);
+        print_grid(game);
         printf("\n\t\t\tCrosses has won.\n");
         sleep(3);
         system("clear");
@@ -147,8 +135,7 @@ char checkWinner(char *game)
     }
     else if(game[1] == 'O' && game[4] == 'O' && game[7] == 'O'){
         system("clear");
-        printf("\t\t Welcome to Noughts And Crosses\n\n");
-        printf(" \t\t\t%c | %c | %c \n\t\t\t---------- \n\t\t\t%c | %c | %c \n\t\t\t----------\n\t\t\t%c | %c | %c\n\n",game[0],game[1],game[2],game[3],game[4],game[5],game[6],game[7],game[8]);
+        print_grid(game);
         printf("\n\t\t\tNoughts has won.\n");
         sleep(3);
         system("clear");
@@ -156,8 +143,7 @@ char checkWinner(char *game)
     }
     if(game[2] == 'X' && game[5] == 'X' && game[8] == 'X'){
         system("clear");
-        printf("\t\t Welcome to Noughts And Crosses\n\n");
-        printf(" \t\t\t%c | %c | %c \n\t\t\t---------- \n\t\t\t%c | %c | %c \n\t\t\t----------\n\t\t\t%c | %c | %c\n\n",game[0],game[1],game[2],game[3],game[4],game[5],game[6],game[7],game[8]);
+        print_grid(game);
         printf("\n\t\t\tCrosses has won.\n");
         sleep(3);
         system("clear");
@@ -165,8 +151,7 @@ char checkWinner(char *game)
     }
     else if(game[2] == 'O' && game[5] == 'O' && game[8] == 'O'){
         system("clear");
-        printf("\t\t Welcome to Noughts And Crosses\n\n");
-        printf(" \t\t\t%c | %c | %c \n\t\t\t---------- \n\t\t\t%c | %c | %c \n\t\t\t----------\n\t\t\t%c | %c | %c\n\n",game[0],game[1],game[2],game[3],game[4],game[5],game[6],game[7],game[8]);
+        print_grid(game);
         printf("\n\t\t\tNoughts has won.\n");
         sleep(3);
         system("clear");
@@ -183,8 +168,7 @@ char checkWinner(char *game)
             ++count;
             if(count == 9){
                 system("clear");
-                printf("\t\t Welcome to Noughts And Crosses\n\n");
-                printf(" \t\t\t%c | %c | %c \n\t\t\t---------- \n\t\t\t%c | %c | %c \n\t\t\t----------\n\t\t\t%c | %c | %c\n\n",game[0],game[1],game[2],game[3],game[4],game[5],game[6],game[7],game[8]);
+                print_grid(game);
                 printf("\n\t\t\tDraw!!.\n");
                 sleep(3);
                 system("clear");
@@ -198,12 +182,22 @@ char checkWinner(char *game)
 }
 
 
-/*
-Used for drawing the grid!
-*/
+char print_grid(char *game)
+{
+    /*
+    OUTPUTS THE GRID
+    */
+    printf("\t\t Welcome to Noughts And Crosses\n\n");
+    printf(" \t\t\t%c | %c | %c \n\t\t\t---------- \n\t\t\t%c | %c | %c \n\t\t\t----------\n\t\t\t%c | %c | %c\n\n",game[0],game[1],game[2],game[3],game[4],game[5],game[6],game[7],game[8]);
+    return 0;
+}
+
 int drawGrid(int x,int turn,int reset)
 {
-    static char game[9] = {'1','2','3','4','5','6','7','8','9'}; //Grid for the game.
+    /*
+    THIS FUNCTION IS DRAWS THE GRID BY CHANGING THE VALUES IN THE GAME ARRAY DEPENDENT ON WHAT MARKGRID() HAS GIVEN
+    */
+    static char game[] = {'1','2','3','4','5','6','7','8','9'}; //Grid for the game.
     if(reset == 1){
         char reset[9] = {'1','2','3','4','5','6','7','8','9'};
         for(int i = 0; i < 9; ++i){
@@ -226,19 +220,18 @@ int drawGrid(int x,int turn,int reset)
             system("clear");
         }
     }
-    printf("\t\t Welcome to Noughts And Crosses\n\n");
-    //Grid with values
-    printf(" \t\t\t%c | %c | %c \n\t\t\t---------- \n\t\t\t%c | %c | %c \n\t\t\t----------\n\t\t\t%c | %c | %c\n\n",game[0],game[1],game[2],game[3],game[4],game[5],game[6],game[7],game[8]);
+    print_grid(game);
     markGrid();
     return 0;
 
 }
 
-/*
-Marks the grid depending on who's turn it is.
-*/
+
 void markGrid()
 {
+    /*
+    THIS FUNCTION CHANGES THE VALUES IN THE GAME ARRAY AND THEN GETS THEM DRAWN BY THE DRAWGRID() FUNCTION.
+    */
     int value = 0;
     static int turn = 0;
     //Enter values to draw to grid.
@@ -255,5 +248,6 @@ void markGrid()
         drawGrid(value-1,1,0);
     }
 }
+
 
 
